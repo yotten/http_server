@@ -11,7 +11,7 @@ def checkGET
     @forms.store(datas[0], datas[1])
   end
 
-  @str = str
+#  @str = str
 end
 
 def writeHTML
@@ -23,7 +23,7 @@ def writeHTML
   puts "<h3>こんにちは。</h3>"
   puts "<p>これはCGIプログラムからの表示です。</p>"
   puts "あなたは、「" + @forms['text1'] + "」と書いたね？"
-  puts @str 
+#  puts @str 
   puts "</body></html>"
 end
 
