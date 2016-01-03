@@ -1,18 +1,6 @@
 #!/home/pi/.rbenv/shims/ruby
 # -*- coding: utf-8 -*-
-
-def checkGET
-  str = ENV["QUERY_STRING"]
-  ary = str.split("&")
-  @forms = {}
-
-  ary.each do |obj|
-    datas = obj.split("=")
-    @forms.store(datas[0], datas[1])
-  end
-
-#  @str = str
-end
+require "cgi"
 
 def writeHTML
   puts "Content-Type: text/html"
@@ -22,11 +10,11 @@ def writeHTML
   puts "</head><body>"
   puts "<h3>こんにちは。</h3>"
   puts "<p>これはCGIプログラムからの表示です。</p>"
-  puts "あなたは、「" + @forms['text1'] + "」と書いたね？"
+  puts "あなたは、「" + @cgi['text1'] + "」と書いたね？"
 #  puts @str 
   puts "</body></html>"
 end
 
-checkGET
+@cgi = CGI.new
 writeHTML
 
